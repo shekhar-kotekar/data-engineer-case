@@ -1,4 +1,4 @@
-# Getting Started with Local setup
+## Prerequisites
 
 We are using below technologies for this task.
 
@@ -6,20 +6,29 @@ We are using below technologies for this task.
 - uv package manager
 - Flyte for workflow orchastration
 - PySpark for distributed processing
-- Docker and K8s for production deployment (Next steps)
+- Streamlit to show the results
+- Dockerization (Next steps)
+- K8s for production deployment (Next steps)
 - Github actions for CI/CD pipelines (Next steps)
+- Pipeline health and data monitoring (Next steps)
 
-## Output data generation in local
+## Getting Started with Local setup
 
-Execute `make dev-setup` target to install all the necessary dependencies. Please make sure that you have installed `uv` package manager before running any target in Makefile. Installation instructions for uv can be found [here](https://docs.astral.sh/uv/getting-started/installation/)
+We need to run the Flyte data pipeline in local to generate the analytical results after which we can run the streamlit app to view the results.
 
-To run pipeline locally on the test data (data directory), execute `make run_in_local` which will do the following:
+### Output data generation in local
 
-- Run Flyte workflow which will run the Flyte tasks to generate analytics data
-- These Flyte tasks execute PySpark code in local
-- Pyspark writes output data in `output` directory
+1. Execute `make dev-setup` target to install all the necessary dependencies.
+   Please make sure that you have installed `uv` package manager before running any target in Makefile. Installation instructions for uv can be found [here](https://docs.astral.sh/uv/getting-started/installation/)
 
-## View Analytics
+2. To run pipeline locally on the test data (data directory), execute `make run_in_local` which will do the following:
+
+   - Run Flyte workflow which will run the Flyte tasks to generate analytics data
+
+   - These Flyte tasks execute PySpark code in local
+   - Pyspark writes output data in `output` directory
+
+## View Analytics data
 
 Execute `make run_streamlit` command which will start a local Streamlit based app and display "Daily Active Teams" in a bar chart.
 
